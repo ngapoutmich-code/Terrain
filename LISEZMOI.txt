@@ -1,0 +1,48 @@
+MICH4TRACK · MODE TERRAIN (sans réseau)
+=======================================
+
+CE QUE C'EST
+Une petite application installable (PWA) qui fonctionne SANS réseau : scan des étiquettes (Code 39), traçabilité
+complète d'une bille (inventaire → abattage → billonnage → LV → usine, position UTM), composition des chargements
+Négoce (départ du parc de rupture) et bordereau imprimé / PDF produit sur le téléphone.
+
+1) PUBLIER LA PAGE (une seule fois) — GitHub Pages
+   - Dans votre dépôt (ex. test-terrain), remplacez le contenu publié par TOUS les fichiers de ce dossier
+     (index.html, sw.js, manifest.webmanifest, zxing.min.js, icon-192.png, icon-512.png, icon-maskable-512.png),
+     à la racine du dossier publié.
+   - Attendez 1 à 2 minutes puis ouvrez https://<compte>.github.io/<dépôt>/ sur le téléphone, AVEC du réseau.
+   - Menu du navigateur → « Installer l'application » (ou « Ajouter à l'écran d'accueil »).
+   - Pour le message de mise à jour : republiez simplement les fichiers ; le téléphone les récupère à la prochaine
+     ouverture avec réseau.
+   - Facultatif : dans les secrets de l'application Streamlit, ajoutez
+         [terrain]
+         url = "https://<compte>.github.io/<dépôt>/"
+     pour afficher le lien dans l'onglet Chargement → Terrain.
+
+2) PRÉPARER LES DONNÉES (avec réseau, au bureau ou en ville)
+   Application Mich4Track → Chargement → Terrain → choisir un CODE D'ACCÈS → « Préparer le fichier terrain »
+   → Télécharger ou Partager (WhatsApp). Fichier .m4terrain, chiffré (AES-256), valable 5 jours.
+   Envoyez le fichier ET communiquez le code d'accès séparément.
+
+3) SUR LE TÉLÉPHONE (premier usage, avec ou sans réseau)
+   Ouvrir l'application → « Choisir le fichier de données » → saisir le code d'accès.
+   Ensuite : code d'accès demandé à chaque ouverture (verrouillage automatique après 10 min d'inactivité).
+   - Recherche : DF10, code barre, N° LV, séquence (fin de séquence acceptée) ou bouton Scanner.
+   - Chargement : scanner/saisir les billes (contrôles : introuvable, abandon, pas au parc de rupture, doublon,
+     déjà dans un autre chargement, maximum 15), renseigner le transport, « Enregistrer » → bordereau (Imprimer / PDF,
+     CSV, fichier LV).
+   - Envois : « Envoyer » partage un fichier .json (WhatsApp, e-mail…) à importer dans l'application.
+   - Après 5 jours les données sont refusées ; les chargements déjà enregistrés restent envoyables.
+
+4) RÉCUPÉRER LES CHARGEMENTS
+   Application Mich4Track → Chargement → Terrain → « Fichier de chargements envoyé par le téléphone » → vérifier →
+   « Importer … dans l'historique ». Un chargement déjà importé est reconnu (même référence) et ignoré.
+   Les anomalies sont signalées (bille déjà exportée, plus au parc de rupture, abandon…), sans bloquer l'import.
+
+NOTES
+   - Les données restent chiffrées sur le téléphone ; seules les billes chargées reviennent dans le fichier d'envoi.
+   - Réglages → « Protéger les données contre l'effacement » (ou installer l'application) évite que le navigateur
+     ne vide le stockage s'il manque de place.
+   - La carte de fond n'existe pas sans réseau : la position s'affiche en UTM + WGS84 et s'ouvre dans l'application
+     de cartes du téléphone.
+   - Fichiers de chargements .json : aucun code d'accès (ils ne contiennent que les billes chargées).
