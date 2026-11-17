@@ -18,6 +18,7 @@ Négoce (départ du parc de rupture) et bordereau imprimé / PDF produit sur le 
          [terrain]
          url = "https://<compte>.github.io/<dépôt>/"
          app_url = "https://mich4track.streamlit.app"
+         code = "VOTRE_CODE_D_ACCES"   (6 caractères au moins ; code unique du fichier terrain)
      (url = page terrain ; app_url = adresse de l'application, transmise au téléphone pour l'interrupteur de retour).
      Un interrupteur « En ligne / Terrain » relie alors les deux pages (vert = réseau, orange = hors ligne).
      pour afficher le lien dans l'onglet Chargement → Terrain.
