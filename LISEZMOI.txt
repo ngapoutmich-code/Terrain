@@ -17,6 +17,9 @@ Négoce (départ du parc de rupture) et bordereau imprimé / PDF produit sur le 
    - Facultatif : dans les secrets de l'application Streamlit, ajoutez
          [terrain]
          url = "https://<compte>.github.io/<dépôt>/"
+         app_url = "https://mich4track.streamlit.app"
+     (url = page terrain ; app_url = adresse de l'application, transmise au téléphone pour l'interrupteur de retour).
+     Un interrupteur « En ligne / Terrain » relie alors les deux pages (vert = réseau, orange = hors ligne).
      pour afficher le lien dans l'onglet Chargement → Terrain.
 
 2) PRÉPARER LES DONNÉES (avec réseau, au bureau ou en ville)
