@@ -50,3 +50,17 @@ NOTES
    - La carte de fond n'existe pas sans réseau : la position s'affiche en UTM + WGS84 et s'ouvre dans l'application
      de cartes du téléphone.
    - Fichiers de chargements .json : aucun code d'accès (ils ne contiennent que les billes chargées).
+
+
+NOUVEAUTÉS : FORÊT → RUPTURE ET POINTAGE DU PARC
+-------------------------------------------------
+1. Onglet « Chargement » : choisir « Négoce » (départ du parc de rupture, 15 billes max, référence EV-… automatique)
+   ou « Forêt → Rupture » (billes du parc forêt, sans limite, N° LV saisi = référence, site de destination,
+   bouton « Tout ajouter » par titre). Au-delà de 15 billes : bordereau multi-pages (synthèse titre × essence + détail).
+2. Onglet « Pointage » : inventaire physique du parc par scan (trouvées / manquantes / hors périmètre / inconnues),
+   rapport imprimable + CSV des écarts, envoyé comme les chargements.
+3. Les envois (.json) contiennent désormais les trois types ; l'application les importe dans Chargement > Terrain
+   (Historique > filtre « Pointage » pour les rapports). Le QR d'un bordereau forêt est reconnu par Rechercher.
+
+DÉPLOIEMENT : republier le dossier mode_terrain sur GitHub Pages, remplacer mobile_app.py et terrain.py,
+puis préparer un NOUVEAU fichier .m4terrain (il contient maintenant la liste des sites). Réinstaller la PWA si besoin.
